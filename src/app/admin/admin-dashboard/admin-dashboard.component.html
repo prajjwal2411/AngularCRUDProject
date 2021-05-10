@@ -4,41 +4,44 @@
         <h1>Add Employees</h1>
     </div>
 
-    <div class="row my-3">
-        <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
-
-            <div class="col-4">
+        <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" class="border p-3">
+            <div class="row">
+            <div class="col-4 my-2">
                 <label class="m-0 form-label">Employee ID</label>
-                <input id="empId" class="form-control" type="text" placeholder="Employee ID" formControlName="empId">
+                <input id="empId" class="form-control" type="text" placeholder="Employee ID" formControlName="empId" required>
             </div>
             
-            <div class="col-4">
+            <div class="col-4 my-2">
                 <label class="m-0 form-label">Employee Name</label>
-                <input class="form-control" type="text" placeholder="Employee Name" formControlName="empName">
+                <input class="form-control" type="text" placeholder="Employee Name" formControlName="empName" required>
             </div>
             
-            <div class="col-4">
+            <div class="col-4 my-2">
                 <label class="m-0 form-label">Employee Department</label>
                 <input class="form-control" type="text" placeholder="Employee Department"
-                    formControlName="empDepartment">
+                    formControlName="empDepartment" required>
             </div>
         
-            <div class="col-6">
+            <div class="col-6 my-2">
                 <label class="m-0 form-label">Employee Email</label>
-                <input class="form-control" type="email" placeholder="Employee Email" formControlName="empEmail">
+                <input class="form-control" type="email" placeholder="Employee Email" formControlName="empEmail" required>
             </div>
             
-            <div class="col-6">
+            <div class="col-6 my-2">
                 <label class="m-0 form-label">Employee Password</label>
-                <input class="form-control" type="text" placeholder="Employee Password" formControlName="empPwd">
+                <input class="form-control" type="text" placeholder="Employee Password" formControlName="empPwd" required>
             </div>
 
             <div>
-                <button *ngIf="show" class="btn btn-primary" type="submit">Add</button>
-                <button *ngIf="!show" class="btn btn-primary" (click)="updateEmployee()">Update</button>
+                <button *ngIf="show" class="my-2 btn btn-primary" type="submit">Add</button>
+                <button *ngIf="!show" class="my-2 btn btn-primary" (click)="updateEmployee()">Update</button>
             </div>
+        </div>
         </form>
 
+        <div>
+            <h1>List of Employees</h1>
+        </div>
         <table class="table table-dark table-striped">
             <thead>
             <tr>
@@ -66,7 +69,7 @@
         </tbody>
         </table>
 
-    </div>
+    
 
 
 </div>
