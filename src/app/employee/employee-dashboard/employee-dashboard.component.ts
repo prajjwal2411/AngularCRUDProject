@@ -12,4 +12,9 @@ export class EmployeeDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public toDisplayData: any = JSON.parse(localStorage.getItem("Employees"));
+
+
+  
+
 }

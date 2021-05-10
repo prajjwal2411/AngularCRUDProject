@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-user-admin',
@@ -9,12 +11,22 @@ import { Router } from '@angular/router';
 })
 export class LoginUserAdminComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    private authService: AuthService
-  ) { }
+  public adminLoginForm: FormGroup;
+  public isSubmitted: boolean = false;
+
+  constructor(private router: Router, private authService: AuthService, public formBuilder: FormBuilder) 
+  {
+    this.adminLoginForm = this.formBuilder.group({
+      adminEmail: ['', [Validators.required, Validators.email]],
+      adminPassword: ['',Validators.required]
+    })
+   }
 
   ngOnInit(): void {
+  }
+
+  get returnFormControl(){
+    return this.adminLoginForm.controls;
   }
 
   //For User Login
@@ -24,23 +36,23 @@ export class LoginUserAdminComponent implements OnInit {
 
   userLogin()
   {
-    if(this.authService.userLogin(this.employeeID, this.employeeEmail, this.employeePassword))
-    {
-      this.router.navigateByUrl('employdash');
+    if(this.isSubmitted){
+      if(this.authService.userLogin(this.employeeID, this.employeeEmail, this.employeePassword))
+      {
+        this.router.navigateByUrl('employdash');
+      }
     }
   }
 
-  //For User Login
-  public adminEmail: any;
-  public adminPassword: any;
-
-  adminLogin()
+  onAdminSubmit()
   {
-    if(this.authService.adminLogin(this.adminEmail, this.adminPassword))
+    this.isSubmitted = true;
+    if(this.authService.adminLogin(this.adminLoginForm.value.adminEmail, this.adminLoginForm.value.adminPassword))
     {
       this.router.navigateByUrl('admindash');
     }
   }
+  
 
   //To Change Form
   public show: boolean = true;

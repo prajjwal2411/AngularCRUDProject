@@ -32,7 +32,6 @@ export class AdminDashboardComponent implements OnInit {
 
   public toDisplayData: any = JSON.parse(localStorage.getItem("Employees"));
 
-
   onSubmit()
   {
     //console.log(this.addUserForm.value, "value");

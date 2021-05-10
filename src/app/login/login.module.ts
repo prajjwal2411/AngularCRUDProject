@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginUserAdminComponent } from './login-user-admin/login-user-admin.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const loginModuleRoutes: Routes = [
   {
@@ -21,6 +21,7 @@ const loginModuleRoutes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(loginModuleRoutes)
   ]
 })
