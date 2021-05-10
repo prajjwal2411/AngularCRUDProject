@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ProguardGuard } from '../../guards/proguard.guard';
+import { ProguardGuard } from '../guards/proguard.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminService } from '../../services/admin.service';
+import { AdminService } from '../services/admin.service';
 
 const adminModuleRoutes: Routes = [
   {
