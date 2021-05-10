@@ -1,0 +1,72 @@
+<div class="container mt-4">
+
+    <div>
+        <h1>Add Employees</h1>
+    </div>
+
+    <div class="row my-3">
+        <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+
+            <div class="col-4">
+                <label class="m-0 form-label">Employee ID</label>
+                <input id="empId" class="form-control" type="text" placeholder="Employee ID" formControlName="empId">
+            </div>
+            
+            <div class="col-4">
+                <label class="m-0 form-label">Employee Name</label>
+                <input class="form-control" type="text" placeholder="Employee Name" formControlName="empName">
+            </div>
+            
+            <div class="col-4">
+                <label class="m-0 form-label">Employee Department</label>
+                <input class="form-control" type="text" placeholder="Employee Department"
+                    formControlName="empDepartment">
+            </div>
+        
+            <div class="col-6">
+                <label class="m-0 form-label">Employee Email</label>
+                <input class="form-control" type="email" placeholder="Employee Email" formControlName="empEmail">
+            </div>
+            
+            <div class="col-6">
+                <label class="m-0 form-label">Employee Password</label>
+                <input class="form-control" type="text" placeholder="Employee Password" formControlName="empPwd">
+            </div>
+
+            <div>
+                <button *ngIf="show" class="btn btn-primary" type="submit">Add</button>
+                <button *ngIf="!show" class="btn btn-primary" (click)="updateEmployee()">Update</button>
+            </div>
+        </form>
+
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of toDisplayData | keyvalue; index as i"> 
+                <td>{{i+1}}</td>
+                <td>{{info.value.empId}}</td>
+                <td>{{info.value.empName}}</td>
+                <td>{{info.value.empDepartment}}</td>
+                <td>{{info.value.empEmail}}</td>
+                <td>{{info.value.empPwd}}</td>
+                <td><button class="btn btn-outline-primary" (click)=editItem(i)>Edit</button></td>
+                <td><button class="btn btn-danger" (click)=removeItem(i)>Delete</button></td>
+            </tr>
+        </tbody>
+        </table>
+
+    </div>
+
+
+</div>

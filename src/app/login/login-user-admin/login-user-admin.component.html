@@ -1,0 +1,58 @@
+<div class="container col-8">
+    <div class="user-wrapper" *ngIf="show">
+        <h1>USER LOGIN</h1>
+        <div class="my-3">
+            <button type="button" class="btn btn-dark" (click)="toToggle()">
+                Login as {{person}}
+            </button>
+        </div>
+        <div class="container col-6">
+            
+                <div class="my-3">
+                    <label class="form-label">Employee ID</label>
+                    <input class="form-control" type="text" placeholder="Employee ID" [(ngModel)]="this.employeeID">
+                </div>
+
+                <div class="my-3">
+                    <label class="form-label">Employee Email</label>
+                    <input class="form-control" type="text" placeholder="Employee Email" [(ngModel)]="this.employeeEmail">
+                </div>
+
+                <div class="my-3">
+                    <label class="form-label">Employee Password</label>
+                    <input class="form-control" type="password" placeholder="Employee Password" [(ngModel)]="this.employeePassword">
+                </div>
+
+                <div class="my-3">
+                    <button class="btn btn-primary" (click)="userLogin()" >User Login</button>
+                </div>
+            
+        </div>
+    </div>
+
+    <div class="admin-wrapper" *ngIf="!show">
+        <h1>ADMIN LOGIN</h1>
+        <div class="my-3">
+            <button type="button" class="btn btn-dark" (click)="toToggle()">
+                Login as {{person}}
+            </button>
+        </div>
+        <div class="container col-6">
+            
+                <div class="form-group my-3">
+                    <label class="form-abel">Admin Email</label>
+                    <input class="form-control" type="text" placeholder="Admin Email" [(ngModel)]="this.adminEmail">
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="form-abel">Admin Password</label>
+                    <input class="form-control" type="password" placeholder="Admin Password" [(ngModel)]="this.adminPassword">
+                </div>
+
+                <div class="my-3">
+                    <button class="btn btn-primary" (click)="adminLogin()">Admin Login</button>                
+                </div>
+            
+        </div>
+    </div>
+</div>
